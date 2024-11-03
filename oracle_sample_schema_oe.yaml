@@ -1,0 +1,208 @@
+version: 2
+models:
+- name: oe_customers
+  description: Model for table oe_customers
+  columns:
+  - name: customer_id_col
+    data_type: NUMBER
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+  - name: cust_first_name_col
+    data_type: VARCHAR
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+  - name: cust_last_name_col
+    data_type: VARCHAR
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+  - name: cust_address_col
+    data_type: CUST
+  - name: phone_numbers_col
+    data_type: PHONE
+  - name: nls_language_col
+    data_type: VARCHAR
+  - name: nls_territory_col
+    data_type: VARCHAR
+  - name: credit_limit_col
+    data_type: NUMBER
+  - name: cust_email_col
+    data_type: VARCHAR
+  - name: account_mgr_id_col
+    data_type: NUMBER
+  - name: cust_geo_location_col
+    data_type: DECIMAL
+  - name: date_of_birth_col
+    data_type: DATE
+  - name: marital_status_col
+    data_type: VARCHAR
+  - name: gender_col
+    data_type: VARCHAR
+  - name: income_level_col
+    data_type: VARCHAR
+- name: oe_inventories
+  description: Model for table oe_inventories
+  columns:
+  - name: prod_id_col
+    data_type: NUMBER
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+  - name: warehouse_id_col
+    data_type: NUMBER
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+  - name: quantity_on_hand_col
+    data_type: NUMBER
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+- name: oe_orders
+  description: Model for table oe_orders
+  columns:
+  - name: order_id_col
+    data_type: NUMBER
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+  - name: order_date_col
+    data_type: TIMESTAMP
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+  - name: order_mode_col
+    data_type: VARCHAR
+  - name: customer_id_col
+    data_type: NUMBER
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+  - name: order_status_col
+    data_type: NUMBER
+  - name: order_total_col
+    data_type: NUMBER
+  - name: sales_rep_id_col
+    data_type: NUMBER
+  - name: promotion_id_col
+    data_type: NUMBER
+- name: oe_prod_information
+  description: Model for table oe_prod_information
+  columns:
+  - name: prod_id_col
+    data_type: NUMBER
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+  - name: prod_name_col
+    data_type: VARCHAR
+  - name: prod_description_col
+    data_type: VARCHAR
+  - name: category_id_col
+    data_type: NUMBER
+  - name: weight_class_col
+    data_type: NUMBER
+  - name: warranty_period_col
+    data_type: INTERVAL
+  - name: supplier_id_col
+    data_type: NUMBER
+  - name: prod_status_col
+    data_type: VARCHAR
+  - name: list_price_col
+    data_type: NUMBER
+  - name: min_price_col
+    data_type: NUMBER
+  - name: catalog_url_col
+    data_type: VARCHAR
+- name: oe_prod_descriptions
+  description: Model for table oe_prod_descriptions
+  columns:
+  - name: prod_id_col
+    data_type: NUMBER
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+  - name: language_id_col
+    data_type: VARCHAR
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+  - name: translated_name_col
+    data_type: NVARCHAR
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+  - name: translated_description_col
+    data_type: NVARCHAR
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+- name: oe_order_items
+  description: Model for table oe_order_items
+  columns:
+  - name: order_id_col
+    data_type: NUMBER
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+  - name: line_item_id_col
+    data_type: NUMBER
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+  - name: prod_id_col
+    data_type: NUMBER
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+  - name: unit_price_col
+    data_type: NUMBER
+  - name: quantity_col
+    data_type: NUMBER
+- name: oe_promotions
+  description: Model for table oe_promotions
+  columns:
+  - name: promo_id_col
+    data_type: NUMBER
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+  - name: promo_name_col
+    data_type: VARCHAR
+- name: oe_warehouses
+  description: Model for table oe_warehouses
+  columns:
+  - name: warehouse_id_col
+    data_type: NUMBER
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+  - name: warehouse_spec_col
+    data_type: XMLType
+  - name: warehouse_name_col
+    data_type: VARCHAR
+  - name: location_id_col
+    data_type: NUMBER
+  - name: wh_geo_location_col
+    data_type: DECIMAL

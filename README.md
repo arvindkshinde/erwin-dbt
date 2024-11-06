@@ -1,5 +1,3 @@
-Here’s a README.md file for your project, summarizing each script’s purpose, setup, usage, and example:
-
 erwin-dbt Integration Scripts
 
 This repository contains sample Python scripts to automate integration between erwin Data Modeler and dbt (Data Build Tool). The scripts enable automated generation of DDLs and conversion into dbt-compatible YAML formats, with an option to upload these YAML files to GitHub for version control.

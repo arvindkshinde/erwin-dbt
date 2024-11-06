@@ -28,8 +28,6 @@
 
 <h3>1. <code>erwin_api_fe.py</code></h3>
 <ul>
-    <li><strong>Author:</strong> Arvind Shinde</li>
-    <li><strong>Date:</strong> October 2024</li>
     <li><strong>Description:</strong> Generates Forward Engineered DDL script using erwin API.</li>
     <li><strong>Setup:</strong> Requires <code>pywin32</code> for COM API interaction with erwin.</li>
     <li><strong>Usage:</strong>
@@ -39,8 +37,6 @@
 
 <h3>2. <code>create_yaml_from_ddl.py</code></h3>
 <ul>
-    <li><strong>Author:</strong> Arvind Shinde</li>
-    <li><strong>Date:</strong> 29-Oct-2024</li>
     <li><strong>Description:</strong> Converts an Oracle DDL SQL file to a dbt-compatible YAML file.</li>
     <li><strong>Expected YAML Format:</strong>
         <pre><code>version: 2
@@ -72,8 +68,6 @@ models:
 
 <h3>3. <code>upload_to_git.py</code></h3>
 <ul>
-    <li><strong>Author:</strong> Arvind Shinde</li>
-    <li><strong>Date:</strong> October 2024</li>
     <li><strong>Description:</strong> Uploads a file to a specified GitHub repository.</li>
     <li><strong>Setup:</strong> Requires <code>pygithub</code> to interact with the GitHub API.</li>
     <li><strong>Usage:</strong>
@@ -83,8 +77,6 @@ models:
 
 <h3>4. <code>erwin_model_api_to_dbt_yaml.py</code></h3>
 <ul>
-    <li><strong>Author:</strong> Arvind Shinde</li>
-    <li><strong>Date:</strong> October 2024</li>
     <li><strong>Description:</strong> Directly generates a dbt-compatible YAML file from an erwin model using the erwin API.</li>
     <li><strong>Expected YAML Format:</strong>
         <pre><code>version: 2
@@ -118,9 +110,6 @@ models:
 <ul>
     <li><strong>Description:</strong> A sample Oracle DDL file provided for testing the erwin-dbt integration scripts.</li>
 </ul>
-
-<h3>License</h3>
-<p>This project is open-source for educational and integration purposes. Please ensure compliance with erwin and dbt licensing terms if using in production environments.</p>
 
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en">
 <body>
 
-<h1>erwin-dbt Integration Scripts</h1>
+<h1>erwin-dbt Integration Sample Scripts</h1>
 
 <p>This repository contains sample Python scripts to automate integration between <strong>erwin Data Modeler</strong> and <strong>dbt</strong> (Data Build Tool). The scripts enable automated generation of DDLs and conversion into dbt-compatible YAML formats, with an option to upload these YAML files to GitHub for version control.</p>
 

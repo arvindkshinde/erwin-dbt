@@ -1,123 +1,128 @@
-erwin-dbt Integration Scripts
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>erwin-dbt Integration Scripts</title>
+</head>
+<body>
 
-This repository contains sample Python scripts to automate integration between erwin Data Modeler and dbt (Data Build Tool). The scripts enable automated generation of DDLs and conversion into dbt-compatible YAML formats, with an option to upload these YAML files to GitHub for version control.
+<h1>erwin-dbt Integration Scripts</h1>
 
-Contents
+<p>This repository contains sample Python scripts to automate integration between <strong>erwin Data Modeler</strong> and <strong>dbt</strong> (Data Build Tool). The scripts enable automated generation of DDLs and conversion into dbt-compatible YAML formats, with an option to upload these YAML files to GitHub for version control.</p>
 
-	•	erwin_api_fe.py: Generates Forward Engineered DDL scripts using erwin API
-	•	create_yaml_from_ddl.py: Converts Oracle DDL SQL files to dbt YAML format
-	•	upload_to_git.py: Uploads files to a specified GitHub repository
-	•	erwin_model_api_to_dbt_yaml.py: Generates dbt YAML file directly from an erwin model via erwin API
-	•	sample_oracle_ddl.sql: Sample Oracle DDL file for testing and demonstration purposes
+<h2>Contents</h2>
+<ul>
+    <li><code>erwin_api_fe.py</code>: Generates Forward Engineered DDL scripts using erwin API</li>
+    <li><code>create_yaml_from_ddl.py</code>: Converts Oracle DDL SQL files to dbt YAML format</li>
+    <li><code>upload_to_git.py</code>: Uploads files to a specified GitHub repository</li>
+    <li><code>erwin_model_api_to_dbt_yaml.py</code>: Generates dbt YAML file directly from an erwin model via erwin API</li>
+    <li><code>sample_oracle_ddl.sql</code>: Sample Oracle DDL file for testing and demonstration purposes</li>
+</ul>
 
-Prerequisites
+<h3>Prerequisites</h3>
+<p>Install the required Python packages for each script:</p>
+<pre><code>pip install pywin32 sqlparse pyyaml pygithub</code></pre>
 
-Install the required Python packages for each script:
+<h2>Scripts Overview</h2>
 
-pip install pywin32 sqlparse pyyaml pygithub
+<h3>1. <code>erwin_api_fe.py</code></h3>
+<ul>
+    <li><strong>Author:</strong> Arvind Shinde</li>
+    <li><strong>Date:</strong> October 2024</li>
+    <li><strong>Description:</strong> Generates Forward Engineered DDL script using erwin API.</li>
+    <li><strong>Setup:</strong> Requires <code>pywin32</code> for COM API interaction with erwin.</li>
+    <li><strong>Usage:</strong>
+        <pre><code>python erwin_api_fe.py</code></pre>
+    </li>
+</ul>
 
-Scripts Overview
-
-1. erwin_api_fe.py
-
-	•	Author: Arvind Shinde
-	•	Date: October 2024
-	•	Description: Generates Forward Engineered DDL script using erwin API.
-	•	Setup: Requires pywin32 for COM API interaction with erwin.
-	•	Usage:
-
-python erwin_api_fe.py
-
-
-
-2. create_yaml_from_ddl.py
-
-	•	Author: Arvind Shinde
-	•	Date: 29-Oct-2024
-	•	Description: Converts an Oracle DDL SQL file to a dbt-compatible YAML file.
-	•	Expected YAML Format:
-
-version: 2
+<h3>2. <code>create_yaml_from_ddl.py</code></h3>
+<ul>
+    <li><strong>Author:</strong> Arvind Shinde</li>
+    <li><strong>Date:</strong> 29-Oct-2024</li>
+    <li><strong>Description:</strong> Converts an Oracle DDL SQL file to a dbt-compatible YAML file.</li>
+    <li><strong>Expected YAML Format:</strong>
+        <pre><code>version: 2
 models:
-  - name: <table_name>
-    description: <table description>
+  - name: &lt;table_name&gt;
+    description: &lt;table description&gt;
     columns:
-      - name: <column_name>
-        data_type: <data type>
+      - name: &lt;column_name&gt;
+        data_type: &lt;data type&gt;
         constraints:
-          - type: <constraint>
+          - type: &lt;constraint&gt;
         tests:
-          - <constraint>
+          - &lt;constraint&gt;</code></pre>
+    </li>
+    <li><strong>Setup:</strong> Requires <code>sqlparse</code>, <code>pyyaml</code>, <code>re</code>, <code>sys</code>.</li>
+    <li><strong>Usage:</strong>
+        <pre><code>python create_yaml_from_ddl.py "&lt;input_file&gt;" "&lt;output_file&gt;"</code></pre>
+    </li>
+    <li><strong>Arguments:</strong>
+        <ul>
+            <li><code>&lt;input_file&gt;</code>: Specify the DDL SQL input file.</li>
+            <li><code>&lt;output_file&gt;</code>: Specify the YAML output file.</li>
+        </ul>
+    </li>
+    <li><strong>Example:</strong>
+        <pre><code>python create_yaml_from_ddl.py "/path/to/oracle_sample_schema_oe.sql" "/path/to/oracle_sample_schema_oe.yaml"</code></pre>
+    </li>
+</ul>
 
+<h3>3. <code>upload_to_git.py</code></h3>
+<ul>
+    <li><strong>Author:</strong> Arvind Shinde</li>
+    <li><strong>Date:</strong> October 2024</li>
+    <li><strong>Description:</strong> Uploads a file to a specified GitHub repository.</li>
+    <li><strong>Setup:</strong> Requires <code>pygithub</code> to interact with the GitHub API.</li>
+    <li><strong>Usage:</strong>
+        <pre><code>python upload_to_git.py</code></pre>
+    </li>
+</ul>
 
-	•	Setup: Requires sqlparse, pyyaml, re, sys.
-	•	Usage:
-
-python create_yaml_from_ddl.py "<input_file>" "<output_file>"
-
-
-	•	Arguments:
-	•	<input_file>: Specify the DDL SQL input file.
-	•	<output_file>: Specify the YAML output file.
-	•	Example:
-
-python create_yaml_from_ddl.py "/path/to/oracle_sample_schema_oe.sql" "/path/to/oracle_sample_schema_oe.yaml"
-
-
-
-3. upload_to_git.py
-
-	•	Author: Arvind Shinde
-	•	Date: October 2024
-	•	Description: Uploads a file to a specified GitHub repository.
-	•	Setup: Requires pygithub to interact with the GitHub API.
-	•	Usage:
-
-python upload_to_git.py
-
-
-
-4. erwin_model_api_to_dbt_yaml.py
-
-	•	Author: Arvind Shinde
-	•	Date: October 2024
-	•	Description: Directly generates a dbt-compatible YAML file from an erwin model using the erwin API.
-	•	Expected YAML Format:
-
-version: 2
+<h3>4. <code>erwin_model_api_to_dbt_yaml.py</code></h3>
+<ul>
+    <li><strong>Author:</strong> Arvind Shinde</li>
+    <li><strong>Date:</strong> October 2024</li>
+    <li><strong>Description:</strong> Directly generates a dbt-compatible YAML file from an erwin model using the erwin API.</li>
+    <li><strong>Expected YAML Format:</strong>
+        <pre><code>version: 2
 models:
-  - name: <table_name>
-    description: <table description>
+  - name: &lt;table_name&gt;
+    description: &lt;table description&gt;
     columns:
-      - name: <column_name>
-        data_type: <data type>
+      - name: &lt;column_name&gt;
+        data_type: &lt;data type&gt;
         constraints:
-          - type: <constraint>
+          - type: &lt;constraint&gt;
         tests:
-          - <constraint>
+          - &lt;constraint&gt;</code></pre>
+    </li>
+    <li><strong>Setup:</strong> Requires <code>pywin32</code>, <code>pyyaml</code>, and <code>sys</code>.</li>
+    <li><strong>Usage:</strong>
+        <pre><code>python erwin_model_api_to_dbt_yaml.py "&lt;input_file&gt;" "&lt;output_file&gt;"</code></pre>
+    </li>
+    <li><strong>Arguments:</strong>
+        <ul>
+            <li><code>&lt;input_file&gt;</code>: Specify the erwin model file.</li>
+            <li><code>&lt;output_file&gt;</code>: Specify the YAML output file.</li>
+        </ul>
+    </li>
+    <li><strong>Example:</strong>
+        <pre><code>python erwin_model_api_to_dbt_yaml.py "C:\path\to\model.erwin" "C:\path\to\dbt_yaml_output.yaml"</code></pre>
+    </li>
+</ul>
 
+<h3>5. <code>sample_oracle_ddl.sql</code></h3>
+<ul>
+    <li><strong>Description:</strong> A sample Oracle DDL file provided for testing the erwin-dbt integration scripts.</li>
+</ul>
 
-	•	Setup: Requires pywin32, pyyaml, and sys.
-	•	Usage:
+<h3>License</h3>
+<p>This project is open-source for educational and integration purposes. Please ensure compliance with erwin and dbt licensing terms if using in production environments.</p>
 
-python erwin_model_api_to_dbt_yaml.py "<input_file>" "<output_file>"
+</body>
+</html>
 
-
-	•	Arguments:
-	•	<input_file>: Specify the erwin model file.
-	•	<output_file>: Specify the YAML output file.
-	•	Example:
-
-python erwin_model_api_to_dbt_yaml.py "C:\path\to\model.erwin" "C:\path\to\dbt_yaml_output.yaml"
-
-
-
-5. sample_oracle_ddl.sql
-
-	•	Description: A sample Oracle DDL file provided for testing the erwin-dbt integration scripts.
-
-License
-
-This project is open-source for educational and integration purposes. Please ensure compliance with erwin and dbt licensing terms if using in production environments.
-
-This README.md provides a comprehensive guide for each script’s purpose, installation, and usage within the erwin-dbt integration workflow.
+This HTML provides a well-structured overview of each script and their usage in the project. Let me know if you need further customization!

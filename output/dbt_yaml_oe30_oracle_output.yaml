@@ -1,0 +1,347 @@
+version: 2
+models:
+- name: customers
+  description: Model for table customers
+  columns:
+  - name: customer_id
+    data_type: NUMBER(6)
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+  - name: cust_first_name
+    data_type: VARCHAR2(20)
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+  - name: cust_last_name
+    data_type: VARCHAR2(20)
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+  - name: cust_address
+    data_type: CUST_ADDRESS_TYP
+    constraints:
+    - 'NULL'
+    tests:
+    - 'null'
+  - name: phone_numbers
+    data_type: PHONE_LIST_TYP
+    constraints:
+    - 'NULL'
+    tests:
+    - 'null'
+  - name: nls_language
+    data_type: VARCHAR2(3)
+    constraints:
+    - 'NULL'
+    tests:
+    - 'null'
+  - name: nls_territory
+    data_type: VARCHAR2(30)
+    constraints:
+    - 'NULL'
+    tests:
+    - 'null'
+  - name: credit_limit
+    data_type: NUMBER(9,2)
+    constraints:
+    - 'NULL'
+    tests:
+    - 'null'
+  - name: cust_email
+    data_type: VARCHAR2(30)
+    constraints:
+    - 'NULL'
+    tests:
+    - 'null'
+  - name: account_mgr_id
+    data_type: NUMBER(6)
+    constraints:
+    - 'NULL'
+    tests:
+    - 'null'
+  - name: cust_geo_location
+    data_type: DECIMAL
+    constraints:
+    - 'NULL'
+    tests:
+    - 'null'
+  - name: date_of_birth
+    data_type: DATE
+    constraints:
+    - 'NULL'
+    tests:
+    - 'null'
+  - name: marital_status
+    data_type: VARCHAR2(20)
+    constraints:
+    - 'NULL'
+    tests:
+    - 'null'
+  - name: gender
+    data_type: VARCHAR2(1)
+    constraints:
+    - 'NULL'
+    tests:
+    - 'null'
+  - name: income_level
+    data_type: VARCHAR2(20)
+    constraints:
+    - 'NULL'
+    tests:
+    - 'null'
+- name: inventories
+  description: Model for table inventories
+  columns:
+  - name: product_id
+    data_type: NUMBER(6)
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+  - name: warehouse_id
+    data_type: NUMBER(3)
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+  - name: quantity_on_hand
+    data_type: NUMBER(8)
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+- name: orders
+  description: Model for table orders
+  columns:
+  - name: order_id
+    data_type: NUMBER(12)
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+  - name: order_date
+    data_type: TIMESTAMP WITH LOCAL TIME ZONE
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+  - name: order_mode
+    data_type: VARCHAR2(8)
+    constraints:
+    - 'NULL'
+    tests:
+    - 'null'
+  - name: customer_id
+    data_type: NUMBER(6)
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+  - name: order_status
+    data_type: NUMBER(2)
+    constraints:
+    - 'NULL'
+    tests:
+    - 'null'
+  - name: order_total
+    data_type: NUMBER(8,2)
+    constraints:
+    - 'NULL'
+    tests:
+    - 'null'
+  - name: sales_rep_id
+    data_type: NUMBER(6)
+    constraints:
+    - 'NULL'
+    tests:
+    - 'null'
+  - name: promotion_id
+    data_type: NUMBER(6)
+    constraints:
+    - 'NULL'
+    tests:
+    - 'null'
+- name: order_items
+  description: Model for table order_items
+  columns:
+  - name: order_id
+    data_type: NUMBER(12)
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+  - name: line_item_id
+    data_type: NUMBER(3)
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+  - name: product_id
+    data_type: NUMBER(6)
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+  - name: unit_price
+    data_type: NUMBER(8,2)
+    constraints:
+    - 'NULL'
+    tests:
+    - 'null'
+  - name: quantity
+    data_type: NUMBER(8)
+    constraints:
+    - 'NULL'
+    tests:
+    - 'null'
+- name: product_descriptions
+  description: Model for table product_descriptions
+  columns:
+  - name: product_id
+    data_type: NUMBER(6)
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+  - name: language_id
+    data_type: VARCHAR2(3)
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+  - name: translated_name
+    data_type: NVARCHAR2(50)
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+  - name: translated_description
+    data_type: NVARCHAR2(2000)
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+- name: product_information
+  description: Model for table product_information
+  columns:
+  - name: product_id
+    data_type: NUMBER(6)
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+  - name: product_name
+    data_type: VARCHAR2(50)
+    constraints:
+    - 'NULL'
+    tests:
+    - 'null'
+  - name: product_description
+    data_type: VARCHAR2(2000)
+    constraints:
+    - 'NULL'
+    tests:
+    - 'null'
+  - name: category_id
+    data_type: NUMBER(2)
+    constraints:
+    - 'NULL'
+    tests:
+    - 'null'
+  - name: weight_class
+    data_type: NUMBER(1)
+    constraints:
+    - 'NULL'
+    tests:
+    - 'null'
+  - name: warranty_period
+    data_type: INTERVAL YEAR TO MONTH
+    constraints:
+    - 'NULL'
+    tests:
+    - 'null'
+  - name: supplier_id
+    data_type: NUMBER(6)
+    constraints:
+    - 'NULL'
+    tests:
+    - 'null'
+  - name: product_status
+    data_type: VARCHAR2(20)
+    constraints:
+    - 'NULL'
+    tests:
+    - 'null'
+  - name: list_price
+    data_type: NUMBER(8,2)
+    constraints:
+    - 'NULL'
+    tests:
+    - 'null'
+  - name: min_price
+    data_type: NUMBER(8,2)
+    constraints:
+    - 'NULL'
+    tests:
+    - 'null'
+  - name: catalog_url
+    data_type: VARCHAR2(50)
+    constraints:
+    - 'NULL'
+    tests:
+    - 'null'
+- name: promotions
+  description: Model for table promotions
+  columns:
+  - name: promo_id
+    data_type: NUMBER(6)
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+  - name: promo_name
+    data_type: VARCHAR2(20)
+    constraints:
+    - 'NULL'
+    tests:
+    - 'null'
+- name: warehouses
+  description: Model for table warehouses
+  columns:
+  - name: warehouse_id
+    data_type: NUMBER(3)
+    constraints:
+    - type: NOT NULL
+    tests:
+    - not_null
+  - name: warehouse_spec
+    data_type: XMLType
+    constraints:
+    - 'NULL'
+    tests:
+    - 'null'
+  - name: warehouse_name
+    data_type: VARCHAR2(35)
+    constraints:
+    - 'NULL'
+    tests:
+    - 'null'
+  - name: location_id
+    data_type: NUMBER(4)
+    constraints:
+    - 'NULL'
+    tests:
+    - 'null'
+  - name: wh_geo_location
+    data_type: DECIMAL
+    constraints:
+    - 'NULL'
+    tests:
+    - 'null'
+- name: purchaseorder
+  description: Model for table purchaseorder
+  columns: []

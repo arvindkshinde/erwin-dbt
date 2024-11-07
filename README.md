@@ -50,7 +50,7 @@ models:
     <li><strong>Usage:</strong>
         <pre><code>python create_yaml_from_ddl.py "&lt;input_file&gt;" "&lt;output_file&gt;"</code></pre>
     </li>
-    <li><strong>Arguments:</strong>
+    <li><strong>Arguments:</strong> 
         <ul>
             <li><code>&lt;input_file&gt;</code>: Specify the DDL SQL input file.</li>
             <li><code>&lt;output_file&gt;</code>: Specify the YAML output file.</li>
